@@ -1,0 +1,41 @@
+gpu_ids: [0]
+
+aff_args_model_type: dino_vitb8
+aff_args_low_res_saliency_maps: False
+aff_args_facet: key
+aff_args_load_size: 224
+aff_args_bin: False
+aff_args_layer: 11
+aff_args_stride: 2
+
+# ----------------
+aff_I2_weight: 3.5
+
+aff_temp_ts: 0.02
+
+aff_temp_qt: 0.2
+
+judge_conn: True
+
+# ----------------------------------------------------
+rag_sigma: 255.0
+rag_mode: distance
+
+rag_connectivity: 1
+
+is_merge_seg: True
+seg_sigma: 0.6
+
+seg_max_dist: 60
+
+seg_ratio: 0.2
+
+seg_kernel_size: 6
+
+mer_thresh: 30.0
+
+area_th: 5
+
+ratio_th: 100.0
+
+morph_kernel_size: 3

@@ -1,0 +1,28 @@
+gpu_ids: [0]
+
+pretrained_model_name_or_path: "runwayml/stable-diffusion-v1-5"
+
+sample_batch_size: 1
+
+learning_rate: 0.000002
+
+max_train_steps: 400
+
+train_batch_size: 1
+
+save_steps: 200
+
+# "DDPMScheduler", "DDIMScheduler"
+Scheduler_type: "DDIMScheduler"
+
+gradient_accumulation_steps: 2
+
+# 50, 100
+lr_warmup_steps: 100
+
+seed: 3434554
+
+# False, True
+train_text_encoder: True
+
+lr_scheduler: "constant"
