@@ -9,7 +9,7 @@ aff_args_layer: 11
 aff_args_stride: 2
 
 # ----------------
-aff_I2_weight: 3.5
+aff_I2_weight: 5.0
 
 aff_temp_ts: 0.02
 

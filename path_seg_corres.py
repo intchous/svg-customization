@@ -406,9 +406,9 @@ def path_seg_match(model_src, model_tgt, TARGET_IMAGE_PATH, tar_seg_dir, ref_img
     path_seg_mask_dict = {}
 
     for pi in range(len(tgt_img_segs_dict)):
-        tmp_path_info = tgt_img_segs_dict[pi]["path_info"]
+        tmp_path_info = tgt_img_segs_dict[pi].get("path_info")
 
-        if (len(tmp_path_info) > 0):
+        if tmp_path_info and len(tmp_path_info) > 0:
             tmp_path_info = sorted(
                 tmp_path_info, key=lambda x: x["I1_attn_sc_mean"], reverse=True)
             tgt_img_segs_dict[pi]["path_info"] = tmp_path_info

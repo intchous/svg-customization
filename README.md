@@ -80,7 +80,7 @@ To generate customized images, run:
 python dream_infer.py --concept_n 03670_animal_8 --prompt_description "wearing a top hat"
 ```
 
-Note: Try different parameters for better results.
+Note: Try different parameters for better results. Follow [custom-diffusion](https://github.com/adobe-research/custom-diffusion) to get better customizations.
 
 ## Exemplar SVG Preparation
 

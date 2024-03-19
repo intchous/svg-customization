@@ -176,9 +176,13 @@ def tmask_img_replace(tar_img_seg_info, signature, gt_rsz=(224, 224)):
     with open(svg_path_mask_zidx_dict_fp, encoding="utf-8") as f:
         svg_path_mask_zidx_dict = json.load(f)
 
+    tmp_tar_img_path_info = {}
     tar_img_seg_fp_list = []
     for sgk in tar_img_seg_info.keys():
         tar_img_seg_fp_list.append(sgk)
+
+    if(len(tar_img_seg_fp_list) == 0):
+        return tmp_tar_img_path_info
 
     im_pre = tar_img_seg_fp_list[0].split("/")[-2]
     tar_mask_svg_path_sub_dir = tar_mask_svg_path_dir + im_pre + "/"
@@ -187,8 +191,6 @@ def tmask_img_replace(tar_img_seg_info, signature, gt_rsz=(224, 224)):
     mask_replace_dir = test_save_dir + "tar_" + signature + "_mask_replace/"
     mask_replace_sub_dir = mask_replace_dir + im_pre + "/"
     rm_mk_dir(mask_replace_sub_dir)
-
-    tmp_tar_img_path_info = {}
 
     for sub_im_fp in tar_img_seg_fp_list:
         can_affine = False

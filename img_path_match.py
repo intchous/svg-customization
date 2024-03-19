@@ -154,7 +154,7 @@ def img_path_match(signature, tar_img_fp="", ref_img_fp="", match_opt=None, gt_r
     # print("tgt_img_segs_dict:", tgt_img_segs_dict)
     for tgti in range(len(tgt_img_segs_dict)):
         tmp_tgt_seg_info = tgt_img_segs_dict[tgti]
-        if (len(tmp_tgt_seg_info["path_info"]) == 0):
+        if len(tmp_tgt_seg_info.get("path_info", [])) == 0:
             continue
 
         tmp_seg_fp = tmp_tgt_seg_info["seg_fp"]
