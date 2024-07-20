@@ -103,6 +103,7 @@ mkdir ./test_svg_custom/test_animal
 ./test_svg_custom/test_animal/tar_animal_img/
 ```
 
+Note: Target image's file name should contain exemplar SVG's file name.
 
 ## SVG Mask Processing
 

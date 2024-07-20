@@ -464,7 +464,7 @@ def main():
             if (t < cfg.num_iter / 4):
                 procrustes_loss_weight = 0.01
             else:
-                procrustes_loss_weight = 0.04
+                procrustes_loss_weight = 0.08
 
             if (procrustes_loss_weight > 0):
                 for idx_path in range(len(cur_point_var)):
