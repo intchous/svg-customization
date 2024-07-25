@@ -63,7 +63,7 @@ def parse_args():
 
     parser.add_argument('--log_dir',
                         metavar='DIR',
-                        default="log/test_fig_deform/")
+                        default="log/test_fig_deform")
 
     parser.add_argument('--initial',
                         type=str,
@@ -464,7 +464,8 @@ def main():
             if (t < cfg.num_iter / 4):
                 procrustes_loss_weight = 0.01
             else:
-                procrustes_loss_weight = 0.08
+                procrustes_loss_weight = 0.2
+                smoothing_loss_weight = 0.2
 
             if (procrustes_loss_weight > 0):
                 for idx_path in range(len(cur_point_var)):
@@ -491,11 +492,11 @@ def main():
                         m_procrustes_loss += cur_path_m_procrustes_loss
 
                     # -----------------------------------------------
+                    if (smoothing_loss_weight > 0):
+                        cur_path_m_smoothness_loss = laplacian_smoothing_loss(
+                            cur_path_pts)
 
-                    cur_path_m_smoothness_loss = laplacian_smoothing_loss(
-                        cur_path_pts)
-
-                    m_smoothness_loss += cur_path_m_smoothness_loss
+                        m_smoothness_loss += cur_path_m_smoothness_loss
                     # -----------------------------------------------
 
                 m_procrustes_loss = m_procrustes_loss * procrustes_loss_weight
@@ -647,7 +648,6 @@ if __name__ == "__main__":
     cfg_arg = parse_args()
     signature = cfg_arg.signature
     loss_sign = cfg_arg.losssign
-    test_save_dir = "./test_" + signature + "/"
     test_save_dir = "./test_svg_custom/test_" + signature + "/"
 
     img_dir = test_save_dir + "tar_" + signature + "_img/"
@@ -684,6 +684,9 @@ if __name__ == "__main__":
 
         cfg.experiment_dir = osp.join(
             cfg.log_dir, '{}_{}_{}'.format(cfg.exid, cfg.signature, loss_sign))
+
+        res_svg_dir = cfg.log_dir + "_res"
+        os.makedirs(res_svg_dir, exist_ok=True)
 
         # initialize new shapes related stuffs.
         if cfg.trainable.stroke:
@@ -722,3 +725,9 @@ if __name__ == "__main__":
                 yaml.dump(edict_2_dict(cfg), f)
 
             main()
+
+            ini_filename = os.path.join(
+                cfg.experiment_dir, cfg.signature + "_optm.svg")
+            out_filename = os.path.join(res_svg_dir, str(
+                cfg.exid) + "_" + cfg.signature + "_optm.svg")
+            shutil.copyfile(ini_filename, out_filename)

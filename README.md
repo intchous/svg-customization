@@ -139,5 +139,7 @@ python svg_deform.py --signature=animal --losssign=procrustes
 After optimizing, the results can be found in:
 
 ```python
+./log/test_fig_deform_res/
+or
 ./log/test_fig_deform/.../..._optm.svg
 ```
