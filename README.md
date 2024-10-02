@@ -1,5 +1,7 @@
 # Text-Guided Vector Graphics Customization
 
+**Code for the paper [Text-Guided Vector Graphics Customization](https://arxiv.org/abs/2309.12302) (SIGGRAPH Asia 2023).**
+
 ## Installation
 
 Create a new conda environment:
@@ -143,3 +145,22 @@ After optimizing, the results can be found in:
 or
 ./log/test_fig_deform/.../..._optm.svg
 ```
+
+## Citation
+
+If you find this work useful, please cite our paper:
+
+```bib
+@inproceedings{zhang2023text,
+  title={Text-guided vector graphics customization},
+  author={Zhang, Peiying and Zhao, Nanxuan and Liao, Jing},
+  booktitle={SIGGRAPH Asia 2023 Conference Papers},
+  pages={1--11},
+  year={2023}
+}
+```
+
+## Contact
+
+If you have any question, contact us through email at zhangpeiying17@gmail.com.
+
