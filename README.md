@@ -20,7 +20,7 @@ pip install Pillow==9.5.0 scikit-image==0.19.3 opencv-python matplotlib
 pip install numpy scipy timm scikit-fmm einops scikit-learn
 pip install accelerate transformers safetensors datasets 
 pip install cairosvg rembg pycpd easydict munch kornia
-pip install faiss-cpu pytorch_metric_learning fast_pytorch_kmeans pypotrace
+pip install faiss-cpu pytorch_metric_learning fast_pytorch_kmeans
 pip install --force-reinstall cython==0.29.36
 pip install --no-build-isolation git+https://github.com/lucasb-eyer/pydensecrf.git
 ```
